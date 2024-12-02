@@ -7,11 +7,22 @@ import { errorMiddleware } from './utils/middlewares/error.middleware';
 
 config();
 
+const allowedOrigins = [
+    process.env.CLIENT_URL_DEV,
+    process.env.CLIENT_URL_BUILD,
+];
+
 const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: process.env.CLIENT_URL
+    origin: (origin, callback) => {
+        if (!origin || allowedOrigins.includes(origin)) {
+            callback(null, true);
+        } else {
+            callback(new Error('Not allowed by CORS'));
+        }
+    },
 }));
 
 app.use(MainRouter);
