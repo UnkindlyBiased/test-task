@@ -1,16 +1,15 @@
 import { useGetCountries } from "../hooks/useGetCountries"
+import { CountryCardGrid } from "../components/featured/country-card-grid"
 
 const CountriesPage = () => {
-    const { data } = useGetCountries()
+    const { data, isLoading } = useGetCountries()
 
-    if (data) {
-        console.log(data)
+    if (isLoading || !data) {
+        return <>Loading...</>
     }
 
     return (
-        <div>
-
-        </div>
+        <CountryCardGrid countries={data} />
     )
 }
 
