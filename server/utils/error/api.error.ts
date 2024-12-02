@@ -1,4 +1,4 @@
-import { HttpErrorCodes } from "../enum/http-error-codes.enum"
+import { HttpErrorCodes } from '../enum/http-error-codes.enum';
 
 /**
  * Extended error class, including error code and static errors for any cases
@@ -6,8 +6,8 @@ import { HttpErrorCodes } from "../enum/http-error-codes.enum"
  * @extends Error
  */
 export class ApiError extends Error {
-    readonly message: string
-    readonly code: number
+    readonly message: string;
+    readonly code: number;
 
     /**
      * 
@@ -15,15 +15,15 @@ export class ApiError extends Error {
      * @param code The error code
      */
     constructor(message: string, code: number) {
-        super(message)
+        super(message);
 
-        this.code = code
+        this.code = code;
     }
 
     static BadRequest(message: string) {
-        return new ApiError(message, HttpErrorCodes.BAD_REQUEST)
+        return new ApiError(message, HttpErrorCodes.BAD_REQUEST);
     }
     static NotFound(message: string) {
-        return new ApiError(message, HttpErrorCodes.NOT_FOUND)
+        return new ApiError(message, HttpErrorCodes.NOT_FOUND);
     }
 }

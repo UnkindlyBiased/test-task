@@ -1,8 +1,8 @@
-import { Router } from "express";
+import { Router } from 'express';
 
-import CountryController from "../controllers/country.controller";
+import CountryController from '../controllers/country.controller';
 
-export const CountryRouter = Router()
+export const CountryRouter = Router();
 
-CountryRouter.get('/', CountryController.getCountries)
-CountryRouter.get('/:code', CountryController.getCountryInfo)
+CountryRouter.get('/', CountryController.getCountries);
+CountryRouter.get('/:code', CountryController.getCountryInfo);

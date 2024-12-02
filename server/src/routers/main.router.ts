@@ -1,7 +1,7 @@
-import { Router } from 'express'
+import { Router } from 'express';
 
-import { CountryRouter } from './country.router'
+import { CountryRouter } from './country.router';
 
-export const MainRouter = Router()
+export const MainRouter = Router();
 
-MainRouter.use('/countries', CountryRouter)
+MainRouter.use('/countries', CountryRouter);
