@@ -1,5 +1,6 @@
 import express from 'express'
 import { config } from 'dotenv'
+import cors from 'cors'
 
 import { MainRouter } from './src/routers/main.router'
 import { errorMiddleware } from './utils/middlewares/error.middleware'
@@ -9,6 +10,9 @@ config()
 const app = express()
 
 app.use(express.json())
+app.use(cors({
+    origin: 'http://localhost:5482'
+}))
 
 app.use(MainRouter)
 
